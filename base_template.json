@@ -1,0 +1,17 @@
+{
+    "variables": {
+        "hcloud_token": "{{env `HCLOUD_TOKEN`}}"
+    },
+    "sensitive-variables": ["hcloud_token"],
+    "builders": [{
+        "type": "hcloud",
+        "token": "{{user `hcloud_token`}}",
+        "image": "ubuntu-18.04",
+        "location": "nbg1",
+        "server_type": "cx11",
+        "ssh_username": "root",
+        "user_data_file": "cloud_config.yaml",
+        "snapshot_name": "basetemplate_ubuntu_18_04",
+        "snapshot_labels": { "name": "packer_ubuntu_18_04_docker" }
+    }]
+}

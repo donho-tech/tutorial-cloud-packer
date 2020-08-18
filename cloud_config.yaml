@@ -1,0 +1,19 @@
+#cloud-config
+
+groups:
+  - ninjaturtles
+  users:
+  - name: raphael
+    groups: ninjaturtles
+    lock-passwd: false
+    # created with 'openssl passwd -1 -salt 12345 test'
+    # password=test
+    passwd: $1$12345$CQruoOSylf9ItA76Hhqh2.
+  
+  package_upgrade: true
+  package_update: true
+  packages:
+  - git
+  - htop
+  - vim
+  
